@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .booking-container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        .booking-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .booking-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .booking-container input, 
+        .booking-container select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .booking-container input[type="date"] {
+            padding-left: 10px;
+        }
+
+        .booking-container button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .booking-container button:hover {
+            background-color: #45a049;
+        }
+
+        .confirmation {
+            display: none;
+            text-align: center;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 6px;
+            background-color: #d4edda;
+            color: #155724;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h2>Bus Ticket Booking</h2>
+        <form id="bookingForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone" required>
+
+            <label for="source">Source</label>
+            <input type="text" id="source" placeholder="Enter starting point" required>
+
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" placeholder="Enter destination" required>
+
+            <label for="date">Travel Date</label>
+            <input type="date" id="date" required>
+
+            <label for="tickets">Number of Tickets</label>
+            <input type="number" id="tickets" placeholder="Enter quantity" min="1" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+        <div class="confirmation" id="confirmation">
+            Ticket booked successfully!
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('bookingForm');
+        const confirmation = document.getElementById('confirmation');
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            confirmation.style.display = 'block';
+            form.reset();
+        });
+    </script>
+</body>
+</html>
